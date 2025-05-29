@@ -1,0 +1,6 @@
+.main-menu a {
+  border-right: 1px solid #444;
+}
+.main-menu a:last-child {
+  border-right: none; /* remove last border */
+}

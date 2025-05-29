@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The Main Menu</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-image: url('./gregd.jpg');
+      background-size: cover;
+      font-family: 'Poppins', sans-serif;
+      background-color: #e4cbab;
+    }
+
+    .hero {
+      background: linear-gradient(to right, #c0c4f7, #d1b28a);
+      padding: 16px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .branding {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo {
+      height: 50px;
+      margin-right: 10px;
+      border-radius: 50px;
+    }
+
+    nav h1 {
+      font-size: 25px;
+    }
+
+    nav h2 {
+      font-size: 23px;
+      margin: 0 auto;
+    }
+
+    .navbar {
+      list-style: none;
+      display: flex;
+      gap: 10px;
+      background-color: none;
+      padding: 0 10px;
+      border-radius: 5px;
+    }
+
+    .navbar li {
+      position: relative;
+    }
+
+    .navbar li a {
+      display: block;
+      padding: 14px 20px;
+      color: black;
+      text-decoration: none;
+      font-size: 20px;
+    }
+
+    .navbar li a:hover {
+      background-color: #cac4c4;
+    }
+
+   .dropdown-content {
+  display: none;
+  position: fixed;      /* Changed from absolute to fixed */
+  top: 80px;            /* Adjust as needed to match navbar height */
+  right: 20px;          /* Push to the right edge of screen */
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  min-width: 140px;
+  z-index: 1000;
+  transition: 0.3s ease;
+  
+}
+
+
+    .dropdown-content li a {
+      display: block;
+      padding: 12px 16px;
+      color: #333;
+      text-decoration: none;
+    }
+
+    .dropdown-content li a:hover {
+      background-color: #f5f5f5;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .user-picture {
+      width: 32px;
+      height: 32px;
+      border-radius: 0%;
+      cursor: pointer;
+      object-fit: cover;
+      
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .navbar {
+        flex-direction: column;
+        width: 100%;
+      }
+    }
+
+    .main-menu {
+      margin: 80px auto;
+      width: 80%;
+      max-width: 470px;
+      background: linear-gradient(to right, #c0c4f7, #d1b28a);
+      border-radius: 12px;
+      padding: 60px 50px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      font-family: 'American Typewriter', serif;
+    }
+
+    .main-menu a {
+      display: block;
+      color: white;
+      padding: 10px 30px;
+      text-decoration: none;
+      font-size: 30px;
+      margin: 6px auto;
+      background-color: #34495e;
+      border-radius: 6px;
+      transition: background-color 0.3s;
+      height: 60px;
+      line-height: 40px;
+    }
+
+    .main-menu a:hover {
+      background-color: #6d8ac9;
+    }
+
+    .main-menu a.active {
+      background-color: #2980b9;
+    }
+
+    .main-menu h2 {
+      margin-bottom: 10px;
+      color: white;
+      font-size: 40px;
+    }
+
+    .main-menu p {
+      color: white;
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+    .content-section {
+      padding: 20px;
+      margin: 20px auto;
+      width: 80%;
+      max-width: 600px;
+      background-color: #f0f0f0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      display: none;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="hero">
+    <nav>
+      <div class="branding">
+        <img src="./bibliologo.png" alt="Logo" class="logo">
+        <h1>Bibliophile's Spot</h1>
+      </div>
+      <h2>HOME 🏠</h2>
+      <ul class="navbar">
+        <li><a href="#" onclick="showContent('features'); return false;">Features</a></li>
+        <li><a href="#" onclick="showContent('about'); return false;">About</a></li>
+        <li class="dropdown">
+          <a href="#">
+            <img src="./userpic.webp" alt="User" class="user-picture">
+          </a>
+          <ul class="dropdown-content">
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Settings</a></li>
+          <li><a href="#" onclick="logoutUser()">Logout</a></li>
+
+
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Content Sections for Features and About -->
+  <div id="features" class="content-section">
+    <h2>Features</h2>
+    <p>Explore our curated digital library, get surprise reads with the Random Pick feature, dive into fascinating Book Trivias, and enjoy an interactive Book Game that tests your knowledge. Bibliophile’s Spot is more than just a website — it’s a cozy corner for discovering, learning, and celebrating the magic of stories, all in one beautifully crafted space.</p>
+       <button onclick="hideContent()">Close</button>
+  </div>
+
+  <div id="about" class="content-section">
+    <h2>About Bibliophile’s Spot</h2>
+    <p>Our website is dedicated to those who find joy, comfort, and inspiration in the world of books. Whether you're a casual reader or a devoted bibliophile, this platform offers a unique blend of features tailored to your literary passion.</p>
+      <button onclick="hideContent()">Close</button>
+</div>
+  </div>
+
+  <!-- Main Menu Section -->
+  <div class="menu-block">
+    <div class="main-menu">
+      <h2>Main Menu</h2>
+      <p>Select to continue</p>
+      <a href="frm1.html">📚 Library</a>
+      <a href="Randomp.html">📖 Random Pick</a>
+      <a href="BookTrivias.html">📖 Book Trivias</a>
+      <a href="bookgame.html">📖 Book Game</a>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+  function showContent(sectionId) {
+    document.querySelectorAll('.content-section').forEach(el => {
+      el.style.display = 'none';
+    });
+    document.getElementById(sectionId).style.display = 'block';
+  }
+
+  function hideContent() {
+    document.querySelectorAll('.content-section').forEach(el => {
+      el.style.display = 'none';
+    });
+  }
+
+
+  function logoutUser() {
+    // You can clear local storage/session data if needed
+    // localStorage.clear();
+
+    // Redirect to home or login page
+    window.location.href = "login_bibliospot.html"; // change to your desired page
+  }
+
+</script>
+
+
+</body>
+</html>

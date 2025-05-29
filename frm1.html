@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bibliophile's Spot</title>
+  <style>
+    /* General Styling */
+    body {
+      background: #f5f5f5 url('./librry.png') no-repeat center center;
+      background-size: cover;
+      font-family: Georgia, serif;
+      margin: 0;
+      padding: 0;
+    }
+
+  header {
+    background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1350&q=80');
+    background-color: #3B2D59; /* fallback color */
+    background-size: cover;
+    background-position: center;
+    color: whitesmoke;
+    padding: 60px 20px;
+    text-align: center;
+    position: relative;
+    box-shadow: inset 0 0 0 1000px rgba(59, 45, 89, 0.5);
+  } 
+     nav {
+      background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1350&q=80');
+      background-color: #b7e0c3;
+      background-size: cover;
+      background-position: center;
+      padding: 8px;
+      text-align: center;
+      color: #4a2c63;
+      position: relative;
+      box-shadow: inset 0 0 0 1000px rgba(230, 195, 249, 0.5);
+      font-weight: bold;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      color: black;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    .book-section {
+      
+      display: none;
+      margin: 20px auto;
+      max-width: 800px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .book-section.active {
+      display: block;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 15px;
+      font-size: 30px;
+      font-family: 'Brush Script MT', cursive;
+      color: white;
+    }
+
+    /* Featured Book Section */
+    .featured-books-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .featured-book {
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 20px;
+      transition: all 0.3s ease;
+      border: 3px solid transparent;
+    }
+
+    .featured-book:hover {
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+      transform: translateY(-4px);
+    }
+
+    .featured-book h3 {
+      margin-top: 0;
+      color: #34495e;
+    }
+
+    .featured-book p {
+      color: #555;
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+
+    .featured-book p strong {
+      color: #2c3e50;
+    }
+
+    footer {
+  background-color: #4a5568;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 40px;
+}
+
+/* FIXED: Back button styling should be OUTSIDE footer */
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #3B2D59;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <button onclick="window.location.href='Mainmenu.html';" class="back-button">← Main menu</button>
+
+
+    <h1>📚 Welcome to Bibliophile's Library! 📚</h1>
+    <p>Pick your best library interest!</p>
+  </header>
+
+  <nav>
+    <a onclick="showSection('history')">History Books</a>
+    <a onclick="showSection('psychology')">Psychology Books</a>
+    <a onclick="showSection('philosophy')">Philosophy Books</a>
+    <a onclick="showSection('literature')">Classic Literature Books</a>
+    <a onclick="showSection('science')">Science Books</a>
+    <a onclick="showSection('logic')">Logic Books</a>
+    <a onclick="showSection('poetry')">Poetries</a>
+    <a onclick="showSection('fiction')">Fiction and Non-Fiction</a>
+  </nav>
+
+  
+  <script>
+  window.addEventListener("DOMContentLoaded", () => {
+    const sectionId = window.location.hash.substring(1);
+    if (sectionId) {
+      showSection(sectionId); // show the correct section
+    }
+  });
+
+  function showSection(sectionId) {
+    const sections = document.querySelectorAll("section");
+    sections.forEach(section => {
+      section.style.display = section.id === sectionId ? "block" : "none";
+    });
+  }
+</script>
+
+  
+
+  <!-- Book Categories -->
+  <div id="history" class="book-section">
+    <h2>History Books</h2>
+    <ul>
+      <li>"Guns, Germs, and Steel"</li>
+      <li>"A People's History of the United States"</li>
+    </ul>
+  </div>
+
+  <div id="psychology" class="book-section">
+    <h2>Psychology Books</h2>
+    <ul>
+      <li>"Thinking, Fast and Slow"</li>
+      <li>"Man's Search for Meaning"</li>
+    </ul>
+  </div>
+
+  <div id="philosophy" class="book-section">
+    <h2>Philosophy Books</h2>
+    <ul>
+      <li>"The Republic"</li>
+      <li>"Meditations"</li>
+    </ul>
+  </div>
+
+  <div id="literature" class="book-section">
+    <h2>Classic Literature Books</h2>
+    <ul>
+      <li>"Pride and Prejudice"</li>
+      <li>"To Kill a Mockingbird"</li>
+    </ul>
+  </div>
+
+  <div id="science" class="book-section">
+    <h2>Science Books</h2>
+    <ul>
+      <li>"A Brief History of Time"</li>
+      <li>"The Selfish Gene"</li>
+    </ul>
+  </div>
+
+  <div id="logic" class="book-section">
+    <h2>Logic Books</h2>
+    <ul>
+      <li>"Introduction to Logic"</li>
+      <li>"Logicomix"</li>
+    </ul>
+  </div>
+
+  <div id="poetry" class="book-section">
+    <h2>Poetries</h2>
+    <ul>
+      <li>"The Sun and Her Flowers"</li>
+      <li>"Milk and Honey"</li>
+    </ul>
+  </div>
+
+  <div id="fiction" class="book-section">
+    <h2>Fiction and Non-Fiction</h2>
+    <ul>
+      <li>"1984"</li>
+      <li>"Sapiens"</li>
+    </ul>
+  </div>
+
+  <!-- Featured Books -->
+  <h2>🌟 Famous Books in the Library</h2>
+  <div class="featured-books-section">
+    <div class="featured-book">
+      <h3>Guns, Germs, and Steel</h3>
+      <p><strong>Author:</strong> Jared Diamond</p>
+      <p>A sweeping historical analysis explaining why some civilizations advanced faster than others based on geography and environment.</p>
+    </div>
+    <div class="featured-book">
+      <h3>Thinking, Fast and Slow</h3>
+      <p><strong>Author:</strong> Daniel Kahneman</p>
+      <p>A groundbreaking book on how our minds work, exploring the two systems that drive the way we think and make decisions.</p>
+    </div>
+    <div class="featured-book">
+      <h3>The Republic</h3>
+      <p><strong>Author:</strong> Plato</p>
+      <p>A foundational philosophical work discussing justice, politics, and the ideal society through Socratic dialogue.</p>
+    </div>
+    <div class="featured-book">
+      <h3>Pride and Prejudice</h3>
+      <p><strong>Author:</strong> Jane Austen</p>
+      <p>A classic romantic novel exploring themes of love, class, and social expectations in 19th-century England.</p>
+    </div>
+    <div class="featured-book">
+      <h3>A Brief History of Time</h3>
+      <p><strong>Author:</strong> Stephen Hawking</p>
+      <p>An accessible explanation of cosmology, black holes, and the nature of time by one of the world’s greatest physicists.</p>
+    </div>
+    <div class="featured-book">
+      <h3>Introduction to Logic</h3>
+      <p><strong>Author:</strong> Irving M. Copi</p>
+      <p>A comprehensive guide to the principles of logical reasoning, used widely in philosophy and mathematics education.</p>
+    </div>
+    <div class="featured-book">
+      <h3>The Sun and Her Flowers</h3>
+      <p><strong>Author:</strong> Rupi Kaur</p>
+      <p>A collection of modern poetry that explores love, loss, trauma, healing, and femininity.</p>
+    </div>
+    <div class="featured-book">
+      <h3>1984</h3>
+      <p><strong>Author:</strong> George Orwell</p>
+      <p>A dystopian fiction novel depicting a totalitarian regime and the dangers of surveillance and mind control.</p>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Bibliophile Spot. All rights reserved.
+  </footer>
+
+  <script>
+    function showSection(sectionId) {
+      const sections = document.querySelectorAll('.book-section');
+      sections.forEach(section => section.classList.remove('active'));
+      const target = document.getElementById(sectionId);
+      if (target) target.classList.add('active');
+      window.scrollTo({ top: target.offsetTop - 60, behavior: 'smooth' });
+    }
+  </script>
+  
+
+</body>
+</html>

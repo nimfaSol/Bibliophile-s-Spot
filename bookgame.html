@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book Game: Guess the Answer</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #e6e8fd, #d1b28a);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .games-container {
+      background: linear-gradient(90deg, #b5cfdf, #d3bad8);
+      padding: 40px 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 600px;
+      text-align: center;
+    }
+
+    .games-container h1 {
+      font-size: 28px;
+      margin-bottom: 25px;
+      color: #333;
+    }
+
+    #question {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+      padding: 12px;
+      width: 80%;
+      max-width: 400px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      outline: none;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 8px 5px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background-color: #d1b28a;
+      color: white;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #958dd6;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    @media (max-width: 500px) {
+      input[type="text"] {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="games-container">
+    <h1>Book Game: Guess the Answer</h1>
+    <div id="question-container">
+      <p id="question"><strong>Question:</strong> Loading...</p>
+      <input type="text" id="answer" placeholder="Enter your guess..." />
+      <br>
+      <button onclick="checkAnswer()">Submit</button>
+      <button onclick="nextQuestion()">Next Question</button>
+      <div class="result" id="resultText"></div>
+      <button onclick="window.location.href='Mainmenu.html';" class="back-button">← Main menu</button>
+    
+    </div>
+  </div>
+
+  <script>
+    const questions = [
+      {
+        q: "I have four legs but never walk, full of words but never talk. What am I?",
+        a: ["book", "bookshelf"]
+      },
+      {
+        q: "I'm full of chapters but have no spine. What am I?",
+        a: ["ebook", "e-book", "digital book"]
+      },
+      {
+        q: "You can read me forward or backward, but I always tell the same tale. What am I?",
+        a: ["palindrome"]
+      },
+      {
+        q: "I’m found in libraries and homes, I can take you to magical realms without leaving your seat. What am I?",
+        a: ["book", "novel", "story"]
+      },
+      {
+        q: "I have pages and a cover, but I’m not alive. I may be fiction or facts, ready to be read. What am I?",
+        a: ["book"]
+      }
+    ];
+
+    let current = 0;
+
+    function loadQuestion() {
+      document.getElementById("question").innerHTML = `<strong>Question:</strong> ${questions[current].q}`;
+      document.getElementById("answer").value = "";
+      document.getElementById("resultText").innerText = "";
+    }
+
+    function checkAnswer() {
+      const input = document.getElementById("answer").value.toLowerCase().trim();
+      const validAnswers = questions[current].a;
+      const result = document.getElementById("resultText");
+
+      if (validAnswers.includes(input)) {
+        result.innerText = "✅ Correct!";
+        result.style.color = "green";
+      } else {
+        result.innerText = "❌ Incorrect. Try again!";
+        result.style.color = "red";
+      }
+    }
+
+    function nextQuestion() {
+      current = (current + 1) % questions.length;
+      loadQuestion();
+    }
+
+    window.onload = loadQuestion;
+  </script>
+</body>
+</html>
+

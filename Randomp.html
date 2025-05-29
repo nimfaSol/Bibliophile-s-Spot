@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Roll It!</title>
+  <style>
+    body {
+      background-image: url('randp.jpg'); /* Replace with your image */
+      background-size: cover;    /* Scales to fill the page */
+      background-repeat: no-repeat;
+      background-position: center;
+      height: 100vh;             /* Full viewport height */
+      margin: 0;
+      color: #2c113a;         
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+      background-color: #f0f8ff;
+    }
+
+    button {
+      padding: 40px 30px;
+      font-size: 25px;
+      background-color: #d1b28a;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      font-family: Courier New  ;
+    }
+
+    button:hover {
+      background-color: #1abc9c;
+    }
+
+    .outcome {
+      margin-top: 20px;
+      font-size: 22px;
+      color:  #3620649c;
+      font-weight: bold;
+      text-align: center;
+    }
+    
+  .back-button {
+  position: absolute;
+  top: 60px;
+  left: 30px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #3B2D59;
+  font-weight: bold;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  z-index: 1000;
+  flex-direction: column;
+  gap: 10px;
+
+}
+
+.back-button:hover {
+  background-color: rgba(255, 255, 255, 1);
+  transform: scale(1.05);
+}
+
+.library-button-wrapper {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.library-button {
+  position:absolute;
+  top: 20px;
+  left: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #3B2D59;
+  font-weight: bold;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  z-index: 1000;
+  
+  
+}
+
+.library-button:hover {
+  background-color: #5e3b80;
+  transform: scale(1.05);
+}
+
+
+    
+  </style>
+</head>
+<body>
+  <header>
+    <button onclick="window.location.href='Mainmenu.html';" class="back-button">← Main menu</button>
+    
+  </header>
+  <h1>Can't decide what to read?<br>shuffling...</h1>
+  <button onclick="showRandomOutcome()">ROLL!</button>
+  
+
+  
+  <div class="outcome" id="outcomeBox">🕹️ Your result will appear here...</div>
+<div class="library-button-wrapper">
+  
+  
+  <button onclick="window.location.href='frm1.html';" class="library-button">← Got to Library</button>
+</div>
+
+<script>
+  function goToLibrary() {
+    const librarySection = document.querySelector(".featured-books-section");
+    if (librarySection) {
+      window.scrollTo({ top: librarySection.offsetTop - 60, behavior: "smooth" });
+    }
+  }
+</script>
+
+  
+  <script>
+  function showRandomOutcome() {
+    const outcomes = [
+      { label: "Classic Literature Book", sectionId: "literature" },
+      { label: "Science Book", sectionId: "science" },
+      { label: "Psychology Book", sectionId: "psychology" }, 
+      { label: "History Book", sectionId: "history" },
+      { label: "Philosophy Book", sectionId: "philosophy" },
+      { label: "Logic Book", sectionId: "logic" },
+      { label: "Poetries", sectionId: "poetry" },
+      { label: "Fiction and Non-Fiction Book", sectionId: "fiction" }
+    ];
+    
+
+    const randomIndex = Math.floor(Math.random() * outcomes.length);
+    const selected = outcomes[randomIndex];
+
+    // Show result below
+    const outcomeBox = document.getElementById("outcomeBox");
+    outcomeBox.innerHTML = `🎉 You got: <strong>${selected.label}</strong><br>Enjoy reading!`;
+
+    // Redirect after 2 seconds to specific section on frm1.html
+    setTimeout(() => {
+      window.location.href = `frm1.html#${selected.sectionId}`;
+    }, 2000);
+  }
+</script>
+
+  
+  
+
+</body>
+</html>

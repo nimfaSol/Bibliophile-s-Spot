@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Book Trivias</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: url('https://images.unsplash.com/photo-1512820790803-83ca734da794') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+    }
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.6); /* for text readability */
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    .trivia-container {
+      background: linear-gradient(90deg, #b5cfdf, #c4b3c7);
+      color: #222;
+      border-radius: 12px;
+      padding: 30px;
+      max-width: 900px;
+      margin: 0 auto 40px auto;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+   
+
+    .trivia-card {
+      background:#d1b28a;
+      border-radius: 10px;
+      padding: 15px 20px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    #question-container {
+      text-align: center;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      width: 60%;
+      border-radius: 8px;
+      border: 1px solid #aaa;
+      font-size: 16px;
+    }
+
+    button {
+      margin: 10px 5px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .result {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+  
+  .back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #3B2D59;
+  font-weight: bold;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  z-index: 1000;
+  flex-direction: column;
+  gap: 10px;
+
+}
+
+.back-button:hover {
+  background-color: rgba(255, 255, 255, 1);
+  transform: scale(1.05);
+}
+  </style>
+</head>
+<body>
+  <button onclick="window.location.href='Mainmenu.html';" class="back-button">← Main menu</button>
+    
+  <div class="overlay">
+    <div class="trivia-container">
+      <h1>Book Trivias</h1>
+
+      <div class="trivia-card">The longest novel ever written is <em>"In Search of Lost Time"</em> by Marcel Proust—over 1.2 million words!</div>
+      <div class="trivia-card">Dr. Seuss wrote <em>"Green Eggs and Ham"</em> using only 50 different words.</div>
+      <div class="trivia-card">Shakespeare invented over 1,700 words, including "bedroom," "eyeball," and "lonely."</div>
+      <div class="trivia-card">The most stolen book from public libraries is the <em>Guinness Book of World Records</em>.</div>
+      <div class="trivia-card"><em>Don Quixote</em> by Miguel de Cervantes is considered the first modern novel.</div>
+      <div class="trivia-card">The first book ever printed using movable type was the Gutenberg Bible in the 1450s.</div>
+      <div class="trivia-card">Agatha Christie is the best-selling fiction author of all time—her books have sold over 2 billion copies.</div>
+      <div class="trivia-card">The Harry Potter series has been translated into over 80 languages, including Latin and Ancient Greek.</div>
+      <div class="trivia-card"><em>The Catcher in the Rye</em> was once the most banned book in U.S. schools.</div>
+      <div class="trivia-card">The original title of <em>Pride and Prejudice</em> was <em>First Impressions</em>.</div>
+      <div class="trivia-card">Stephen King threw away his draft of <em>Carrie</em>—his wife dug it out and convinced him to finish it.</div>
+      <div class="trivia-card">The first novel written on a typewriter was <em>The Adventures of Tom Sawyer</em> by Mark Twain.</div>
+      <div class="trivia-card">The world's smallest book is 0.74 mm x 0.75 mm and can only be read with a microscope.</div>
+      <div class="trivia-card">The Library of Congress is the largest library in the world with over 170 million items.</div>
+      <div class="trivia-card">Neil Gaiman wrote <em>Coraline</em> for his daughter because she wanted a story about a girl who had adventures.</div>
+    </div>
